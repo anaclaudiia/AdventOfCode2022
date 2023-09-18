@@ -1,8 +1,8 @@
-/** @file adventoOne.cpp
+/** @file day01.cpp
  * @brief Create this file for solve the first exercise of Advento 2022 (https://adventofcode.com/2022/day/1)
  *
  * @author Ana Miranda
- * @date 07/12/2022
+ * @date 18/09/2023
 */
 
 #include <iostream>
