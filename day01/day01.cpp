@@ -1,6 +1,6 @@
 /** @file day01.cpp
  * @brief Create this file for solve the first exercise of Advento 2022 (https://adventofcode.com/2022/day/1)
- *
+ * @name --- Day 1: Calorie Counting ---
  * @author Ana Miranda
  * @date 18/09/2023
 */
