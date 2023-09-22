@@ -1,6 +1,6 @@
 /** @file day02.cpp
  * @brief Create this file for solve the second exercise of Advento 2022 (https://adventofcode.com/2022/day/2)
- *
+ * @name --- Day 2: Rock Paper Scissors ---
  * @author Ana Miranda
  * @date 18/09/2023
 */
