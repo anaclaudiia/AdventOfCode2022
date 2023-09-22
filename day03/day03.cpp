@@ -1,6 +1,6 @@
 /** @file day03.cpp
  * @brief Create this file for solve the third exercise of Advento 2022 (https://adventofcode.com/2022/day/3)
- *
+ * @name --- Day 3: Rucksack Reorganization ---
  * @author Ana Miranda
  * @date 18/09/2023
 */
