@@ -14,7 +14,7 @@
 int part1 (std::vector<std::pair<std::pair<int,int>,std::pair<int,int>>>& pairSection) {
     int numPairs{0};
 
-    // we could also used count_if
+    // we could also use count_if
     for (auto i : pairSection) {
     if (i.first.first <= i.second.first && i.first.second >= i.second.second ||
         i.second.first <= i.first.first && i.second.second >= i.first.second) 
@@ -27,7 +27,7 @@ int part1 (std::vector<std::pair<std::pair<int,int>,std::pair<int,int>>>& pairSe
 int part2(std::vector<std::pair<std::pair<int,int>,std::pair<int,int>>>& pairSection) {
     int numOverleap{0};
 
-    // we could also used count_if
+    // we could also use count_if
     for (auto i : pairSection) {
         if (i.first.first <= i.second.second && i.second.first <= i.first.second)
             numOverleap ++;
@@ -42,7 +42,6 @@ void readFile(std::string filename, std::vector<std::pair<std::pair<int,int>,std
 
     // check stream status
     if (!inputStream) std::cerr << "Can't open input file!";
-
     std::string listSection;
     int part1_1,part1_2, part2_1, part2_2;
     int numPairs{0};
