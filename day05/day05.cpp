@@ -7,6 +7,8 @@
 
 #include <iostream>
 #include <fstream>
+#include <vector>
+#include <stack>
 
 void readFile(std::string filename) {
     // attach an input stream to the wanted file
@@ -14,9 +16,16 @@ void readFile(std::string filename) {
 
     // check stream status
     if (!inputStream) std::cerr << "Can't open input file!";
-    std::string crates;
-    while(getline(inputStream, crates)) {
+    std::string crates = "";
 
+    std::vector<std::deque<char>> stackCrates;
+    int count, from, to {0};
+    while(getline(inputStream, crates)) {
+        sscanf(crates.c_str(), "move %d from %d to %d", &count, &from, &to);
+
+        for (int i = 0; i < count; i++) {
+            // here we should move the crates
+        }
     }
 }
 
