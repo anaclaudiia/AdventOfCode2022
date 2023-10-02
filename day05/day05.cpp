@@ -16,16 +16,32 @@ void readFile(std::string filename) {
 
     // check stream status
     if (!inputStream) std::cerr << "Can't open input file!";
-    std::string crates = "";
+    std::string lineCrates = "";
 
-    std::vector<std::deque<char>> stackCrates;
+    std::vector<std::deque<char>> vecCrates;
     int count, from, to {0};
-    while(getline(inputStream, crates)) {
-        sscanf(crates.c_str(), "move %d from %d to %d", &count, &from, &to);
+    int index = 0;
 
-        for (int i = 0; i < count; i++) {
-            // here we should move the crates
+    for (size_t i = 0; i < 10; i++) {
+        std::deque<char> a;
+        vecCrates.push_back(a);
+    }
+
+    while(getline(inputStream, lineCrates) && lineCrates[1] != '1') {
+        for (size_t i = 1; i < lineCrates.size(); i += 4) {
+            vecCrates.at(index).push_back(lineCrates[i]);
+            index++;
         }
+        index = 0;
+    }
+
+    while(getline(inputStream, lineCrates) && lineCrates[0] == 'm') {
+        sscanf(lineCrates.c_str(), "move %d from %d to %d", &count, &from, &to);
+
+        for (size_t j = 0; j < count; j++) {
+           // vecCrates.at(to).push_back(vecCrates.at(from).pop_back());
+        }
+
     }
 }
 
