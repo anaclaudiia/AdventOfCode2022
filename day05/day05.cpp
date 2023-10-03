@@ -19,11 +19,9 @@ void readFile(std::string filename) {
     std::string lineCrates = "";
 
     std::vector<std::deque<char>> vecCrates;
-    std::vector<std::deque<char>> vecCrates2;
     for (size_t i = 0; i < 10; i++) {
         std::deque<char> a;
         vecCrates.push_back(a);
-        vecCrates2.push_back(a);
     }
 
     int index = 0;
@@ -31,14 +29,14 @@ void readFile(std::string filename) {
         for (size_t i = 1; i < lineCrates.size(); i += 4) {
             if (lineCrates[i] != ' ')
                 vecCrates.at(index).push_back(lineCrates[i]);
-                vecCrates2.at(index).push_back(lineCrates[i]);
             index++;
         }
         index = 0;
     }
 
     int count, from, to {0};
-
+    std::vector<std::deque<char>> vecCrates2(vecCrates);
+    std::stack<char> stackCrates;
     while(getline(inputStream, lineCrates)) {
         sscanf(lineCrates.c_str(), "move %d from %d to %d", &count, &from, &to);
         for (size_t j = 0; j < count; j++) {
@@ -48,8 +46,13 @@ void readFile(std::string filename) {
             vecCrates[from - 1].pop_front();
 
             //Part 2:
-            vecCrates2[to - 1].emplace_front(vecCrates2[from - 1].back());
-            vecCrates2[from - 1].pop_back();
+            stackCrates.emplace(vecCrates2[from - 1].front());
+            vecCrates2[from - 1].pop_front();
+        }
+
+        while (!stackCrates.empty()) {
+            vecCrates2[to - 1].push_front(stackCrates.top());
+            stackCrates.pop();
         }
     }
 
@@ -59,11 +62,15 @@ void readFile(std::string filename) {
             std::cout << item.front();
     }
 
+    std::cout << " " << std::endl;
+
     std::cout << "Crates ends up on top of each stack (Part 2): ";
     for (const auto item : vecCrates2) {
         if (!item.empty())
-            std::cout << item.front() << std::endl;
+            std::cout << item.front();
     }
+
+    std::cout << " " << std::endl;
 }
 
 
