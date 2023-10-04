@@ -9,6 +9,7 @@
 #include <fstream>
 #include <vector>
 #include <stack>
+#include <deque>
 
 void readFile(std::string filename) {
     // attach an input stream to the wanted file
@@ -46,7 +47,7 @@ void readFile(std::string filename) {
             vecCrates[from - 1].pop_front();
 
             //Part 2:
-            stackCrates.emplace(vecCrates2[from - 1].front());
+            stackCrates.push(vecCrates2[from - 1].front());
             vecCrates2[from - 1].pop_front();
         }
 
@@ -60,17 +61,13 @@ void readFile(std::string filename) {
     for (const auto item : vecCrates) {
         if (!item.empty())
             std::cout << item.front();
-    }
-
-    std::cout << " " << std::endl;
+    } std::cout << " " << std::endl;
 
     std::cout << "Crates ends up on top of each stack (Part 2): ";
     for (const auto item : vecCrates2) {
         if (!item.empty())
             std::cout << item.front();
-    }
-
-    std::cout << " " << std::endl;
+    } std::cout << " " << std::endl;
 }
 
 
