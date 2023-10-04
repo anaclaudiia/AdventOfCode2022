@@ -1,0 +1,3 @@
+/home/claudia_learns/Projects/AdventOfCode2022/day06/build/CMakeFiles/main.dir
+/home/claudia_learns/Projects/AdventOfCode2022/day06/build/CMakeFiles/edit_cache.dir
+/home/claudia_learns/Projects/AdventOfCode2022/day06/build/CMakeFiles/rebuild_cache.dir
