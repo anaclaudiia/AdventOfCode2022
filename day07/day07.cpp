@@ -11,16 +11,26 @@
 #include <vector>
 
 void Part1(std::vector<std::string>& vecData) {
-    size_t start = 0, end = 3;
+    size_t start = 0, end = 2;
     size_t count{0};
+    std:: vector<std::string> directoryName;
+    std::string name;
     for (auto i: vecData) {
         std::string word = i.substr(start, end);
-        if (word == "dir") {
+        if (word == "di") {
             count ++;
+            name = i.substr(end+1);
         }
-    }
 
-    std::cout << count;
+        if (word == "cd") {
+            if (word == "ls") {
+
+            }
+        }
+
+
+
+    }
 
 }
 
