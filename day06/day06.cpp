@@ -8,25 +8,25 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include <vector>
-#include <algorithm>
+#include <set>
 
-int Part1(std::string& dataStream) {
-    auto position{0};
-    std::string::iterator it;
+int Part1(std::string& dataStream, size_t marker) {
+    for (int i = 0; i < dataStream.size(); i++) {
+        std::string itemMarker = dataStream.substr(i, marker);
 
-    for (auto i : dataStream) {
-        if (((dataStream[i] != dataStream[i+1]) && ((dataStream[i] != dataStream[i+1]) != dataStream[i+2]))
-         && (((dataStream[i] != dataStream[i+1]) && ((dataStream[i] != dataStream[i+1]) != dataStream[i+2])) != dataStream[i+3]))
-        {
-            it = std::find(dataStream.begin(), dataStream.end(), dataStream[i+3]);
+        // std::set doesn't take multiple same values it only accepts a unique value.
+        std::set<char> itemOrder;
+        for (const auto i : itemMarker) {
+            itemOrder.insert(i);
+        }
+
+        // if this condition is true = all the values are unique
+        if (itemOrder.size() == marker) {
+            return i + marker;
         }
     }
-        if (it != dataStream.end()) {
-            std::cout << it - dataStream.begin();
-        }
-  
-    return position;
+
+    return -1;
 }
 
 void readFile(std::string filename, std::string& dataStream) {
@@ -36,8 +36,7 @@ void readFile(std::string filename, std::string& dataStream) {
     // check stream status
     if (!inputStream) std::cerr << "Can't open input file!";
 
-    while(getline(inputStream, dataStream)) {
-    }
+    while(getline(inputStream, dataStream));
 }
 
 
@@ -47,7 +46,10 @@ int main(int argc, char** argv) {
         readFile(argv[1], dataStream);
     }
 
-    std::cout << "(Part 1): Is need " << Part1(dataStream) << " characters to be processed" << std::endl;
+    const size_t packetMarker{4};
+    std::cout << "(Part 1): Is need " << Part1(dataStream, packetMarker) << " characters to be processed" << std::endl;
+    const size_t messageMarker{14};
+    std::cout << "(Part 2): Is need " << Part1(dataStream, messageMarker) << " characters to be processed" << std::endl;
 
     return 0;
 }
