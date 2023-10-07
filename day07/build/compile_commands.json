@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/claudia_learns/Projects/AdventOfCode2022/day07/build",
+  "command": "/usr/bin/c++  -I/home/claudia_learns/Projects/AdventOfCode2022/day07 -std=gnu++14 -o CMakeFiles/main.dir/day07.cpp.o -c /home/claudia_learns/Projects/AdventOfCode2022/day07/day07.cpp",
+  "file": "/home/claudia_learns/Projects/AdventOfCode2022/day07/day07.cpp"
+}
+]
